@@ -12,6 +12,7 @@ class Employee extends Model
     use HasFactory, HasUuids, SoftDeletes;
 
     protected $fillable = [
+        'image',
         'name',
         'phone',
         'position',
