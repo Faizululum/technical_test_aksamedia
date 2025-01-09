@@ -36,12 +36,20 @@ class AuthController extends Controller
                     'token' => $token,
                     'admin' => $admin,
                 ],
-            ]);
+            ], 200);
         }
 
         return response()->json([
             'status' => 'error',
             'message' => 'Login Failed',
         ], 401);
+    }
+
+    public function logout(Request $request) {
+        $request->user()->tokens->delete();
+        return response()->json([
+            'status' => 'success',
+            'message' => 'Logout Success',
+        ], 200);
     }
 }
